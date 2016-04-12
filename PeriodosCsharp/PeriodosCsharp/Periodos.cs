@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace PeriodosCsharp
 {
@@ -80,6 +84,36 @@ namespace PeriodosCsharp
             {
                 throw new Exception(ex.Message, ex);
             }
+        }
+
+        public static Boolean VerificaPeriodoUnico<TProperty>(this List<TProperty> lista, Expression<Func<TProperty, DateTime>> expressaoDtIni, Expression<Func<TProperty, DateTime?>> expressaoDtFim)
+        {
+            List<KeyValuePair<DateTime, DateTime?>> listaKey = new List<KeyValuePair<DateTime, DateTime?>>();
+
+            var nomePropriedadeDtIni = (expressaoDtIni.Body as MemberExpression).Member.Name.ToString();
+            var nomePropriedadeDFimi = (expressaoDtFim.Body as MemberExpression).Member.Name.ToString();
+
+            foreach (var item in lista)
+            {
+                object dtIniObject = item.GetType().GetProperty(nomePropriedadeDtIni).GetValue(item, null);
+                object dtFimObject = item.GetType().GetProperty(nomePropriedadeDFimi).GetValue(item, null);
+
+                DateTime dtInicioAux = (DateTime)dtIniObject;
+                DateTime? dtFimAux = dtFimObject as DateTime?;
+
+                var novoPeriodo = new KeyValuePair<DateTime, DateTime?>(dtInicioAux, dtFimAux);
+
+                listaKey.Add(novoPeriodo);
+            }
+
+            Boolean retorno = VerificaPeriodoUnico(listaKey);
+
+            return retorno; 
+        }
+
+        public static Boolean VerificaSozinho<TProperty>(this List<TProperty> lista)
+        {
+            return true;
         }
     }
 }

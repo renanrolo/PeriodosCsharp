@@ -50,11 +50,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ClasseAuxiliar.cs" />
     <Compile Include="TestSuit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestSuitComRetornos.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TestSuitComLambda.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PeriodosCsharp\PeriodosCsharp.csproj">
