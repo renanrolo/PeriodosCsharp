@@ -31,7 +31,7 @@ namespace PeriodosCsharp
                     return true;
 
 
-                if (lista.Where(x=>x.Value.HasValue && x.Value.Value < x.Key).Any())
+                if (lista.Where(x => x.Value.HasValue && x.Value.Value < x.Key).Any())
                     throw new Exception("Foi encontrado um (ou mais) periodo(s) com data final menor que data inicial.");
 
 
@@ -82,6 +82,11 @@ namespace PeriodosCsharp
             }
             catch (Exception ex)
             {
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    ex.Data.Add("Lista[" + i + "]", "Ini: " + lista[i].Key + " => Fim: " + lista[i].Value);
+                }
+
                 throw new Exception(ex.Message, ex);
             }
         }
@@ -108,12 +113,9 @@ namespace PeriodosCsharp
 
             Boolean retorno = VerificaPeriodoUnico(listaKey);
 
-            return retorno; 
+            return retorno;
         }
 
-        public static Boolean VerificaSozinho<TProperty>(this List<TProperty> lista)
-        {
-            return true;
-        }
+
     }
 }
