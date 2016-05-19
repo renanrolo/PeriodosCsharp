@@ -57,6 +57,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TestSuitComLambda.cs" />
+    <Compile Include="TestCompararDatas.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PeriodosCsharp\PeriodosCsharp.csproj">
