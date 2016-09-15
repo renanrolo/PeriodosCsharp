@@ -246,7 +246,8 @@ namespace PeriodosCsharp
 
             foreach (var item in lista)
             {
-                var listaSemOProprioElemento = lista.Where(x => x.Key != item.Key).ToList();
+                var listaSemOProprioElemento = lista.ToList();
+                listaSemOProprioElemento.Remove(item);
 
                 if (item.Value.HasValue)
                 {
