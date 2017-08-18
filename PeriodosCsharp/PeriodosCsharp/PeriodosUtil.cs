@@ -8,126 +8,9 @@ using System.Reflection;
 
 namespace PeriodosCsharp
 {
-    public static class Periodos
+    public static class PeriodosUtil
     {
-        /// <summary>
-        /// Retorna o ultimo dia do mes da data de referencia.
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static DateTime UltimoDiaDoMes(this DateTime data)
-        {
-            DateTime dataUltimoDiaDoMes = new DateTime(data.Year, data.Month, DateTime.DaysInMonth(data.Year, data.Month));
-            return dataUltimoDiaDoMes;
-        }
-
-        /// <summary>
-        /// Retorna o ultimo dia do mes da data de referencia.
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static DateTime? UltimoDiaDoMes(this DateTime? data)
-        {
-            if (!data.HasValue)
-                return null;
-
-            DateTime dataUltimoDiaDoMes = new DateTime(data.Value.Year, data.Value.Month, DateTime.DaysInMonth(data.Value.Year, data.Value.Month));
-            
-            return dataUltimoDiaDoMes;
-        }
-
-        /// <summary>
-        /// Compara datas e retorna a maior. Permite datas nulas, mas retorna somente a maior data que tiver valor.
-        /// </summary>
-        /// <param name="datas">Datas para comparar</param>
-        /// <returns>Retorna a maior data, ou numa lista de nulos retorna null</returns>
-        public static DateTime? RetornaMaiorData(params DateTime?[] datas)
-        {
-            DateTime? retorno = null;
-
-            foreach (var item in datas)
-            {
-                if (!retorno.HasValue)
-                {
-                    retorno = item;
-                    continue;
-                }
-
-                if (item.HasValue && item.Value > retorno.Value)
-                {
-                    retorno = item;
-                }
-            }
-
-            return retorno;
-        }
-
-        /// <summary>
-        /// Compara datas e retorna a maior.
-        /// </summary>
-        /// <param name="datas">Datas para comparar</param>
-        /// <returns>Retorna a maior data</returns>
-        public static DateTime RetornaMaiorData(params DateTime[] datas)
-        {
-            DateTime retorno = new DateTime();
-
-            foreach (var item in datas)
-            {
-                if (item > retorno)
-                {
-                    retorno = item;
-                }
-            }
-
-            return retorno;
-        }
-
-        /// <summary>
-        /// Compara datas e retorna a menor. Permite datas nulas, mas retorna somente a menor data que tiver valor.
-        /// </summary>
-        /// <param name="datas">Datas para comparar</param>
-        /// <returns>Retorna a menor data, ou numa lista de nulos retorna null</returns>
-        public static DateTime? RetornaMenorData(params DateTime?[] datas)
-        {
-            DateTime? retorno = null;
-
-            foreach (var item in datas)
-            {
-                if (!retorno.HasValue)
-                {
-                    retorno = item;
-                    continue;
-                }
-
-                if (item.HasValue && item.Value < retorno.Value)
-                {
-                    retorno = item;
-                }
-            }
-
-            return retorno;
-        }
-
-        /// <summary>
-        /// Compara datas e retorna a menor.
-        /// </summary>
-        /// <param name="datas">Datas para comparar</param>
-        /// <returns>Retorna a menor data.</returns>
-        public static DateTime RetornaMenorData(params DateTime[] datas)
-        {
-            DateTime retorno = new DateTime(9999, 12, 31);
-
-            foreach (var item in datas)
-            {
-                if (item < retorno)
-                {
-                    retorno = item;
-                }
-            }
-
-            return retorno;
-        }
-
+        #region Validações de Periodos
         public static Boolean VerificaPeriodoUnico(List<KeyValuePair<DateTime, DateTime?>> lista)
         {
             DateTime? dataInicioNaoUsada;
@@ -303,7 +186,165 @@ namespace PeriodosCsharp
 
             return (memberSelector.Body as MemberExpression).Member.Name;
         }
+        #endregion
 
+        #region Retornar data
+        /// <summary>
+        /// Retorna o ultimo dia do mes da data.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DateTime UltimoDiaDoMes(this DateTime data)
+        {
+            DateTime dataUltimoDiaDoMes = new DateTime(data.Year, data.Month, DateTime.DaysInMonth(data.Year, data.Month));
+            return dataUltimoDiaDoMes;
+        }
+
+        /// <summary>
+        /// Retorna o ultimo dia do mes da data.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DateTime? UltimoDiaDoMes(this DateTime? data)
+        {
+            if (!data.HasValue)
+                return null;
+
+            return data.Value.UltimoDiaDoMes();
+        }
+
+        /// <summary>
+        /// Retorna o primeiro dia do mês da data.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DateTime PrimeiroDiaDoMes(this DateTime data)
+        {
+            DateTime dataPrimeiroDiaDoMes = new DateTime(data.Year, data.Month, 1);
+            return dataPrimeiroDiaDoMes;
+        }
+
+        /// <summary>
+        /// Retorna o primeiro dia do mes da data.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DateTime? PrimeiroDiaDoMes(this DateTime? data)
+        {
+            if (!data.HasValue)
+                return null;
+
+            return data.Value.PrimeiroDiaDoMes();
+        }
+
+        public static DateTime PrimeiroDiaDoMesSeguinte(this DateTime data)
+        {
+            DateTime dataRetorno = data.PrimeiroDiaDoMes();
+
+            if (dataRetorno.Year == 999 && dataRetorno.Month == 12)
+            {
+                return dataRetorno.UltimoDiaDoMes();
+            }
+            else
+            {
+                return dataRetorno.PrimeiroDiaDoMes().AddMonths(1);
+            }
+        }
+
+        /// <summary>
+        /// Compara datas e retorna a maior. Permite datas nulas, mas retorna somente a maior data que tiver valor.
+        /// </summary>
+        /// <param name="datas">Datas para comparar</param>
+        /// <returns>Retorna a maior data, ou numa lista de nulos retorna null</returns>
+        public static DateTime? RetornaMaiorData(params DateTime?[] datas)
+        {
+            DateTime? retorno = null;
+
+            foreach (var item in datas)
+            {
+                if (!retorno.HasValue)
+                {
+                    retorno = item;
+                    continue;
+                }
+
+                if (item.HasValue && item.Value > retorno.Value)
+                {
+                    retorno = item;
+                }
+            }
+
+            return retorno;
+        }
+
+        /// <summary>
+        /// Compara datas e retorna a maior.
+        /// </summary>
+        /// <param name="datas">Datas para comparar</param>
+        /// <returns>Retorna a maior data</returns>
+        public static DateTime RetornaMaiorData(params DateTime[] datas)
+        {
+            DateTime retorno = new DateTime();
+
+            foreach (var item in datas)
+            {
+                if (item > retorno)
+                {
+                    retorno = item;
+                }
+            }
+
+            return retorno;
+        }
+
+        /// <summary>
+        /// Compara datas e retorna a menor. Permite datas nulas, mas retorna somente a menor data que tiver valor.
+        /// </summary>
+        /// <param name="datas">Datas para comparar</param>
+        /// <returns>Retorna a menor data, ou numa lista de nulos retorna null</returns>
+        public static DateTime? RetornaMenorData(params DateTime?[] datas)
+        {
+            DateTime? retorno = null;
+
+            foreach (var item in datas)
+            {
+                if (!retorno.HasValue)
+                {
+                    retorno = item;
+                    continue;
+                }
+
+                if (item.HasValue && item.Value < retorno.Value)
+                {
+                    retorno = item;
+                }
+            }
+
+            return retorno;
+        }
+
+        /// <summary>
+        /// Compara datas e retorna a menor.
+        /// </summary>
+        /// <param name="datas">Datas para comparar</param>
+        /// <returns>Retorna a menor data.</returns>
+        public static DateTime RetornaMenorData(params DateTime[] datas)
+        {
+            DateTime retorno = new DateTime(9999, 12, 31);
+
+            foreach (var item in datas)
+            {
+                if (item < retorno)
+                {
+                    retorno = item;
+                }
+            }
+
+            return retorno;
+        }
+        #endregion
+
+        #region Comparações entre datas
         /// <summary>
         /// Compara datas. 
         /// </summary>
@@ -388,6 +429,6 @@ namespace PeriodosCsharp
 
             return comparacao;
         }
-
+        #endregion
     }
 }

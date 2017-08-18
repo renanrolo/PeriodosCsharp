@@ -51,14 +51,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ClasseAuxiliar.cs" />
+    <Compile Include="TestDatasUtil.cs" />
     <Compile Include="TestPeriodosSemConflito.cs" />
     <Compile Include="TestSuit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestSuitComRetornos.cs">
+    <Compile Include="TestRetornoDePeriodos.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TestSuitComLambda.cs" />
-    <Compile Include="TestCompararDatas.cs" />
+    <Compile Include="TestComparacoesEntreDatas.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PeriodosCsharp\PeriodosCsharp.csproj">

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Testes
 {
     [TestClass]
-    public class TestSuitComRetornos
+    public class TestRetornoDePeriodos
     {
         [TestMethod]
         public void Testar_Criar_lista_null()
@@ -21,7 +21,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(null, dtIni);
@@ -36,7 +36,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(null, dtIni);
@@ -55,7 +55,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -76,7 +76,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -97,7 +97,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsFalse(teste);
             Assert.AreEqual(null, dtIni);
@@ -120,7 +120,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 05, 01), dtIni);
@@ -143,7 +143,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsFalse(teste);
             Assert.AreEqual(null, dtIni);
@@ -164,7 +164,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -185,7 +185,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -206,7 +206,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -229,7 +229,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -248,7 +248,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -269,7 +269,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -290,7 +290,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -311,7 +311,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsFalse(teste);
             Assert.AreEqual(null, dtIni);
@@ -342,7 +342,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsFalse(teste);
             Assert.AreEqual(null, dtIni);
@@ -368,7 +368,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);
@@ -394,7 +394,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 05, 10), dtIni);
@@ -421,7 +421,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
         }
 
         [TestMethod]
@@ -440,7 +440,7 @@ namespace Testes
             DateTime? dtIni;
             DateTime? dtFim;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista, out dtIni, out dtFim);
 
             Assert.IsTrue(teste);
             Assert.AreEqual(new DateTime(2016, 06, 01), dtIni);

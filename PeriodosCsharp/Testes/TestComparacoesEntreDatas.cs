@@ -4,14 +4,27 @@ using PeriodosCsharp;
 namespace Testes
 {
     [TestClass]
-    public class TestCompararDatas
+    public class TestComparacoesEntreDatas
     {
+        #region MaiorQue
         [TestMethod]
         public void Testar_data_MariorQue_sendo_maior()
         {
             DateTime dataUm = new DateTime(2015, 10, 01);
 
             DateTime dataDois = new DateTime(2015, 9, 01);
+
+            Boolean retorno = dataUm.MaiorQue(dataDois);
+
+            Assert.AreEqual(true, retorno);
+        }
+
+        [TestMethod]
+        public void Testar_data_MariorQue_sendo_maior_em_segundos()
+        {
+            DateTime dataUm = new DateTime(2015, 10, 01, 6, 15, 10);
+
+            DateTime dataDois = new DateTime(2015, 10, 01, 6, 15, 09);
 
             Boolean retorno = dataUm.MaiorQue(dataDois);
 
@@ -43,18 +56,6 @@ namespace Testes
         }
 
         [TestMethod]
-        public void Testar_data_MariorQue_sendo_maior_em_segundos()
-        {
-            DateTime dataUm = new DateTime(2015, 10, 01, 6, 15, 10);
-
-            DateTime dataDois = new DateTime(2015, 10, 01, 6, 15, 09);
-
-            Boolean retorno = dataUm.MaiorQue(dataDois);
-
-            Assert.AreEqual(true, retorno);
-        }
-
-        [TestMethod]
         public void Testar_data_MariorQue_sendo_menor_em_segundos()
         {
             DateTime dataUm = new DateTime(2015, 10, 01, 6, 15, 10);
@@ -65,7 +66,9 @@ namespace Testes
 
             Assert.AreEqual(false, retorno);
         }
+        #endregion
 
+        #region MaiorOuIgualQue
         [TestMethod]
         public void Testar_data_MariorOuIgualQue_sendo_maior()
         {
@@ -137,7 +140,9 @@ namespace Testes
 
             Assert.AreEqual(true, retorno);
         }
+        #endregion
 
+        #region IgualQue
         [TestMethod]
         public void Testar_data_IgualQue_sendo_iguais()
         {
@@ -209,7 +214,9 @@ namespace Testes
 
             Assert.AreEqual(false, retorno);
         }
+        #endregion
 
+        #region MenorQue
         [TestMethod]
         public void Testar_data_MenorQue_sendo_menor()
         {
@@ -258,7 +265,20 @@ namespace Testes
             Assert.AreEqual(false, retorno);
         }
 
+        [TestMethod]
+        public void Testar_data_MenorQue_sendo_igual()
+        {
+            DateTime dataUm = new DateTime(2015, 10, 01);
 
+            DateTime dataDois = new DateTime(2015, 10, 01);
+
+            Boolean retorno = dataUm.MenorQue(dataDois);
+
+            Assert.AreEqual(false, retorno);
+        }
+        #endregion
+
+        #region MenorOuIgualQue
         [TestMethod]
         public void Testar_data_MenorOuIgualQue_sendo_maior()
         {
@@ -330,5 +350,6 @@ namespace Testes
 
             Assert.AreEqual(true, retorno);
         }
+        #endregion
     }
 }

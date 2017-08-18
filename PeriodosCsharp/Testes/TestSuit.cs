@@ -16,7 +16,7 @@ namespace Testes
 
             lista = null;
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -26,7 +26,7 @@ namespace Testes
         {
             List<KeyValuePair<DateTime, DateTime?>> lista = new List<KeyValuePair<DateTime, DateTime?>>();
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -40,7 +40,7 @@ namespace Testes
 
             lista.Add(periodoUm);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -56,7 +56,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -72,7 +72,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(false, teste);
         }
@@ -90,7 +90,7 @@ namespace Testes
             lista.Add(periodoDois);
             lista.Add(periodoTres);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -108,7 +108,7 @@ namespace Testes
             lista.Add(periodoDois);
             lista.Add(periodoTres);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(false, teste);
         }
@@ -124,7 +124,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -140,7 +140,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -156,7 +156,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -174,7 +174,7 @@ namespace Testes
             lista.Add(periodoDois);
             lista.Add(periodoTres);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -188,7 +188,7 @@ namespace Testes
 
             lista.Add(periodoUm);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -204,7 +204,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -220,7 +220,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -236,7 +236,7 @@ namespace Testes
             lista.Add(periodoUm);
             lista.Add(periodoDois);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(false, teste);
         }
@@ -262,7 +262,7 @@ namespace Testes
             lista.Add(periodoCinco);
             lista.Add(periodoSeis);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(false, teste);
         }
@@ -283,7 +283,7 @@ namespace Testes
             lista.Add(periodoTres);
             lista.Add(periodoQuatro);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -304,7 +304,7 @@ namespace Testes
             lista.Add(periodoTres);
             lista.Add(periodoQuatro);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
@@ -326,7 +326,7 @@ namespace Testes
             lista.Add(periodoTres);
             lista.Add(periodoQuatro);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
         }
 
         [TestMethod]
@@ -342,7 +342,7 @@ namespace Testes
             lista.Add(periodoDois);
             lista.Add(periodoTres);
 
-            var teste = Periodos.VerificaPeriodoUnico(lista);
+            var teste = PeriodosUtil.VerificaPeriodoUnico(lista);
 
             Assert.AreEqual(true, teste);
         }
